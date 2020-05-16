@@ -33,3 +33,6 @@ ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
   lims()
 
 1+1
+
+2+1
+
