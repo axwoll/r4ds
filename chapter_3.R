@@ -35,4 +35,5 @@ ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
 1+1
 
 2+1
+1+2+3
 
