@@ -1,9 +1,10 @@
 library(tidyverse)
 
 data_mpg <- as_tibble(mpg)
+data_mtcars <- mtcars
 
 head(mpg)
-
+view(mpg)
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy))
 
@@ -32,8 +33,73 @@ ggplot(mtcars, aes(mpg, wt, colour = factor(cyl))) +
   geom_point()+
   lims()
 
-1+1
+ggplot(mpg)+
+  geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))
 
-2+1
-1+2+3
+data_diamonds <- diamonds
+?geom_bar
 
+ggplot(diamonds)+
+  geom_bar(aes(cut))
+
+demo <- tribble(diamonds
+)
+
+demo <- tribble(
+  ~cut,         ~freq,
+  "Fair",       1610,
+  "Good",       4906,
+  "Very Good",  12082,
+  "Premium",    13791,
+  "Ideal",      21551
+)
+
+ggplot(demo)+
+  geom_bar(aes(cut, freq), stat = "identity")
+
+ggplot(demo)+
+  geom_col(aes(cut, freq))
+
+ggplot(diamonds)+
+  geom_bar(aes(cut))
+
+ggplot(diamonds)+
+  geom_bar(aes(cut, y = stat(prop), group = 1))
+
+ggplot(diamonds)+
+  stat_summary(
+    aes(cut, depth),
+    fun.ymin = min,
+    fun.ymax = max,
+    fun.y = median
+  )
+
+?stat_bin           
+stat_summary(diamonds)
+
+ggplot(data = diamonds)+
+  geom_bar(aes(cut, colour = cut))
+
+ggplot(data = diamonds)+
+  geom_bar(aes(cut, fill = cut))
+
+ggplot(data = diamonds)+
+  geom_bar(aes(cut, fill = clarity), position = "dodge")
+
+ggplot(data = mpg)+
+  geom_point(aes(displ, hwy), 
+             position = "jitter")
+
+ggplot(mpg, aes(cty, hwy))+
+  geom_jitter()
+
+ggplot(mpg, aes(class, hwy))+
+  geom_boxplot()+
+  coord_flip()
+
+head(map_data("no"))
+?position_dodge
+
+
+
+  
