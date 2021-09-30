@@ -1,7 +1,9 @@
 rm(list=ls())
 
-library(nycflights13)
+
 library(tidyverse)
+library(nycflights13)
+
 
 jan1 <- filter(flights, month == 1, day == 1)
 
